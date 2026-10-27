@@ -1,4 +1,7 @@
 # Emran — Developer Portfolio
+## Portfolio Screenshot
+
+![Emran's Developer Portfolio](./public/images/Portfolio.png)
 
 Personal portfolio for **Emran**, a full-stack web developer focused on
 Next.js, React, TypeScript, Node.js, and MongoDB. The site is a single-page
