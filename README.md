@@ -1,91 +1,188 @@
 # Emran — Developer Portfolio
-## Portfolio Screenshot
 
-Personal portfolio for **Emran**, a full-stack web developer focused on
-Next.js, React, TypeScript, Node.js, and MongoDB. The site is a single-page
-landing with anchor-linked sections plus a detail page for each project.
+A modern, responsive personal portfolio built to showcase my projects, technical skills, and experience as a Full-Stack Web Developer.
 
-## Stack
+The portfolio features a clean single-page layout with anchor-linked sections, dedicated project detail pages, and a functional contact form.
 
-- Next.js 16 (App Router, Turbopack, React Compiler)
-- React 19 and TypeScript (strict)
-- Tailwind CSS v4
-- `lucide-react` icons and `next/font` (Inter)
+## Portfolio Preview
 
-## Getting started
+![Emran's Developer Portfolio](./public/images/Portfolio.png)
 
-```bash
-npm install
-npm run dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000).
+- **Framework:** Next.js 16 (App Router, Turbopack, React Compiler)
+- **Frontend:** React 19, TypeScript (Strict Mode)
+- **Styling:** Tailwind CSS v4
+- **Icons:** Lucide React
+- **Fonts:** Inter via `next/font`
+- **Backend:** Next.js Route Handlers, Resend API
+- **Deployment:** Vercel
 
-### Scripts
+## Getting Started
 
-```bash
-npm run dev     # development server
-npm run build   # production build
-npm run start   # serve the production build
-npm run lint    # ESLint
-npx tsc --noEmit  # type-check
-```
+### Prerequisites
 
-## Project structure
+- Node.js (a version compatible with the project's Next.js dependencies)
+- npm
 
-| Path | Purpose |
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone YOUR_GITHUB_REPOSITORY_URL
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd my-portfolio
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Available Scripts
+
+| Command | Description |
 | --- | --- |
-| `src/app/page.tsx` | Home page; composes the section components |
-| `src/app/project/[id]/page.tsx` | Project detail page |
-| `src/app/api/contact/route.ts` | Contact form endpoint |
-| `src/components/` | Section and shared UI components |
-| `src/data/projectsData.ts` | Project content for cards, modal, and detail pages |
-| `src/lib/site.ts` | Site URL, name, and description used by metadata |
-| `public/images/` | Profile photo and project screenshots |
-| `public/resume.pdf` | Resume downloaded from the hero section |
-| `public/og.png` | Open Graph / social sharing image |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build the application for production |
+| `npm run start` | Run the production server |
+| `npm run lint` | Run ESLint |
+| `npx tsc --noEmit` | Check TypeScript types |
 
-## Editing content
+## Project Structure
 
-- **Projects:** add or edit entries in `src/data/projectsData.ts`. Each `id` is
-  the URL slug. The project grid, modal, and detail pages all read from this
-  array.
-- **Resume:** replace `public/resume.pdf`; the hero button downloads that file.
-- **Projects images:** add screenshots to `public/images/` and reference them in
-  `projectsData.ts`. Screenshots are displayed at a 2:1 ratio.
-- **Site URL:** set `NEXT_PUBLIC_SITE_URL` in production so canonical URLs,
-  Open Graph metadata, `sitemap.xml`, and `robots.txt` use the real domain.
-
-## Contact form
-
-The form validates inputs on the client and server, shows loading, success, and
-error states, and never reports success unless the email service accepts the
-message. It does **not** show a fake success message when unconfigured.
-
-Submissions are sent through [Resend](https://resend.com)'s HTTP API from the
-server-side route handler. No API key is exposed to the browser.
-
-1. Create a free Resend account and API key.
-2. Copy `.env.example` to `.env.local` and fill in the values.
-3. Verify the sender domain (or use Resend's test sender while developing).
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-RESEND_API_KEY=re_your_api_key
-CONTACT_TO_EMAIL=emransani01@gmail.com
-CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+```text
+my-portfolio/
+├── public/
+│   ├── images/
+│   │   └── Portfolio.png
+│   ├── og.png
+│   └── resume.pdf
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── contact/
+│   │   │       └── route.ts
+│   │   ├── project/
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   ├── data/
+│   │   └── projectsData.ts
+│   └── lib/
+│       └── site.ts
+├── .env.example
+├── package.json
+└── README.md
 ```
 
-`CONTACT_FROM_EMAIL` must be a sender verified in Resend. Without
-`RESEND_API_KEY`, the endpoint returns `503` and the form tells visitors to email
-directly instead of pretending the message was sent.
+## Features
 
-The endpoint also includes a honeypot field and a per-instance rate limit (five
-messages per ten minutes per IP). For higher-volume or durable rate limiting,
-use a shared store such as Upstash Redis.
+- Responsive personal portfolio
+- Dedicated project detail pages
+- Dynamic project content managed from a central data file
+- Project cards and project modal
+- Downloadable resume
+- Contact form with client-side and server-side validation
+- Loading, success, and error states for contact submissions
+- Server-side email delivery using Resend
+- Contact form honeypot protection and per-instance rate limiting
+- SEO metadata, canonical URLs, sitemap, and robots configuration
+- Open Graph image for social sharing
+
+## Customization
+
+### 1. Update Projects
+
+Edit `src/data/projectsData.ts` to add or update projects.
+
+Each project uses an `id` as its URL slug. The project grid, modal, and detail pages use this data.
+
+### 2. Update Profile and Project Images
+
+Place your profile photo and project screenshots inside:
+
+```text
+public/images/
+```
+
+Your portfolio screenshot is stored as:
+
+```text
+public/images/Portfolio.png
+```
+
+For GitHub README preview, the image path is:
+
+```markdown
+![Portfolio Screenshot](./public/images/Portfolio.png)
+```
+
+Project screenshots are displayed at a 2:1 aspect ratio in the portfolio.
+
+### 3. Update Your Resume
+
+Replace the existing file:
+
+```text
+public/resume.pdf
+```
+
+The resume download button uses this file.
+
+### 4. Configure the Website URL
+
+Set `NEXT_PUBLIC_SITE_URL` in your production environment to your actual deployed website URL.
+
+This value is used for canonical URLs, Open Graph metadata, the sitemap, and robots configuration.
+
+## Contact Form Setup
+
+The contact form uses the Resend HTTP API through a server-side Next.js route handler.
+
+The API key is kept on the server and is never exposed to the browser.
+
 
 ## Deployment
 
-The site deploys cleanly to Vercel. Set the environment variables above in the
-project settings, then deploy. `VERCEL_PROJECT_PRODUCTION_URL` is used
-automatically as the site URL when `NEXT_PUBLIC_SITE_URL` is not set.
+This project is designed for deployment on [Vercel](https://vercel.com).
+
+### Deployment Steps
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Configure the required environment variables in your Vercel project settings.
+4. Deploy the application.
+5. Open the deployed website and test the contact form.
+
+
+## Live Demo
+
+- **Live Website:** Add your deployed portfolio URL here.
+- **GitHub Repository:** Add your repository URL here.
+
+## Contact
+
+- **Email:** emransani01@gmail.com
+- **GitHub:** Add your GitHub profile URL here.
+- **Portfolio:** Add your live portfolio URL here.
+
+---
+
+Built with Next.js, React, TypeScript, and Tailwind CSS.
+
