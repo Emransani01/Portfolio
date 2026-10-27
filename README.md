@@ -1,75 +1,91 @@
 # Emran — Developer Portfolio
 
-A modern, responsive personal portfolio built to showcase my projects, technical skills, and experience as a Full-Stack Web Developer.
+Personal portfolio of **Emran**, a Full-Stack Web Developer focused on building modern, responsive, and user-friendly web applications.
 
-The portfolio features a clean single-page layout with anchor-linked sections, dedicated project detail pages, and a functional contact form.
+## 🌐 Live Portfolio
 
-## Portfolio Preview
+**[Visit My Portfolio](https://portfolio-one-sage-33.vercel.app)**
 
-![Emran's Developer Portfolio](./public/images/Portfolio.png)
+## 📸 Portfolio Screenshot
 
-## Tech Stack
+![Emran's Developer Portfolio](./public/images/Portfolio.PNG)
+
+## 🚀 Tech Stack
 
 - **Framework:** Next.js 16 (App Router, Turbopack, React Compiler)
 - **Frontend:** React 19, TypeScript (Strict Mode)
 - **Styling:** Tailwind CSS v4
 - **Icons:** Lucide React
 - **Fonts:** Inter via `next/font`
-- **Backend:** Next.js Route Handlers, Resend API
+- **Backend:** Node.js, Next.js Route Handlers
+- **Email Service:** Resend API
 - **Deployment:** Vercel
 
-## Getting Started
+## ✨ Features
+
+- Modern, responsive portfolio design
+- Single-page layout with anchor-linked sections
+- Dedicated project detail pages
+- Project cards and project details
+- Downloadable resume
+- Contact form with validation
+- Server-side email delivery using Resend
+- Loading, success, and error states for the contact form
+- SEO metadata and Open Graph support
+- Sitemap and robots configuration
+
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Node.js (a version compatible with the project's Next.js dependencies)
+- Node.js
 - npm
 
 ### Installation
 
-1. Clone the repository:
+Clone your GitHub repository:
 
-   ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
-   ```
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
 
-2. Navigate to the project directory:
+Navigate to the project folder:
 
-   ```bash
-   cd my-portfolio
-   ```
+```bash
+cd my-portfolio
+```
 
-3. Install dependencies:
+Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-4. Start the development server:
+Start the development server:
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Available Scripts
+## 📜 Available Scripts
 
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start the development server |
-| `npm run build` | Build the application for production |
+| `npm run build` | Build the application |
 | `npm run start` | Run the production server |
 | `npm run lint` | Run ESLint |
 | `npx tsc --noEmit` | Check TypeScript types |
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 my-portfolio/
 ├── public/
 │   ├── images/
-│   │   └── Portfolio.png
+│   │   └── Portfolio.PNG
 │   ├── og.png
 │   └── resume.pdf
 ├── src/
@@ -91,98 +107,74 @@ my-portfolio/
 └── README.md
 ```
 
-## Features
+## ✏️ Customization
 
-- Responsive personal portfolio
-- Dedicated project detail pages
-- Dynamic project content managed from a central data file
-- Project cards and project modal
-- Downloadable resume
-- Contact form with client-side and server-side validation
-- Loading, success, and error states for contact submissions
-- Server-side email delivery using Resend
-- Contact form honeypot protection and per-instance rate limiting
-- SEO metadata, canonical URLs, sitemap, and robots configuration
-- Open Graph image for social sharing
+### Projects
 
-## Customization
+Add or update projects in `src/data/projectsData.ts`. The project grid, modal, and project detail pages use this data.
 
-### 1. Update Projects
+### Images
 
-Edit `src/data/projectsData.ts` to add or update projects.
-
-Each project uses an `id` as its URL slug. The project grid, modal, and detail pages use this data.
-
-### 2. Update Profile and Project Images
-
-Place your profile photo and project screenshots inside:
+Store your profile photo and project screenshots in:
 
 ```text
 public/images/
 ```
 
-Your portfolio screenshot is stored as:
+The portfolio screenshot is:
 
 ```text
-public/images/Portfolio.png
+public/images/Portfolio.PNG
 ```
 
-For GitHub README preview, the image path is:
+### Resume
 
-```markdown
-![Portfolio Screenshot](./public/images/Portfolio.png)
+Replace `public/resume.pdf` with your updated resume.
+
+### Website URL
+
+Configure `NEXT_PUBLIC_SITE_URL` with your production website URL for canonical URLs and SEO metadata.
+
+## 📬 Contact Form Setup
+
+The contact form uses the Resend API through a server-side Next.js route handler.
+
+1. Create an account at [Resend](https://resend.com).
+2. Generate an API key.
+3. Copy `.env.example` to `.env.local`.
+4. Configure the required environment variables.
+5. Verify your sender domain or configure an eligible test sender.
+
+Example `.env.local` configuration:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://portfolio-one-sage-33.vercel.app
+RESEND_API_KEY=re_your_api_key
+CONTACT_TO_EMAIL=emransani01@gmail.com
+CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
 ```
 
-Project screenshots are displayed at a 2:1 aspect ratio in the portfolio.
+**Security:** Never commit `.env.local` or expose your API keys in your public repository.
 
-### 3. Update Your Resume
+Without a valid `RESEND_API_KEY`, the contact form reports that email delivery is unavailable instead of showing a false success message.
 
-Replace the existing file:
+## 🚀 Deployment
 
-```text
-public/resume.pdf
-```
+This portfolio is deployed on [Vercel](https://vercel.com).
 
-The resume download button uses this file.
+To deploy updates:
 
-### 4. Configure the Website URL
+1. Push your changes to GitHub.
+2. Import or connect the repository in Vercel.
+3. Configure the required environment variables.
+4. Deploy your application.
 
-Set `NEXT_PUBLIC_SITE_URL` in your production environment to your actual deployed website URL.
+## 🔗 Links
 
-This value is used for canonical URLs, Open Graph metadata, the sitemap, and robots configuration.
-
-## Contact Form Setup
-
-The contact form uses the Resend HTTP API through a server-side Next.js route handler.
-
-The API key is kept on the server and is never exposed to the browser.
-
-
-## Deployment
-
-This project is designed for deployment on [Vercel](https://vercel.com).
-
-### Deployment Steps
-
-1. Push the project to GitHub.
-2. Import the repository into Vercel.
-3. Configure the required environment variables in your Vercel project settings.
-4. Deploy the application.
-5. Open the deployed website and test the contact form.
-
-
-## Live Demo
-
-- **Live Website:** Add your deployed portfolio URL here.
+- **Live Portfolio:** [portfolio-one-sage-33.vercel.app](https://portfolio-one-sage-33.vercel.app)
 - **GitHub Repository:** Add your repository URL here.
-
-## Contact
-
 - **Email:** emransani01@gmail.com
-- **GitHub:** Add your GitHub profile URL here.
-- **Portfolio:** Add your live portfolio URL here.
 
 ---
 
-Built with Next.js, React, TypeScript, and Tailwind CSS.
-
+**Built with ❤️ by Emran**
